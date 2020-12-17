@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let column of columns">{{ column.title }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of rows">
+      <ng-container *ngFor="let column of columns">
+        <ng-container *ngFor="let key of keysOf(row)">
+          <ng-container *ngIf="key === column.key">
+            <td *ngIf="key !== 'dueDate'">
+							{{row[key]}}
+						</td>
+            <td *ngIf="key === 'dueDate'">
+              {{row[key] | date}}
+            </td>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </tr>
+  </tbody>
+</table>

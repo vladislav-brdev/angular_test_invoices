@@ -1,0 +1,29 @@
+<div class="invoice" *ngFor="let invoice of invoices">
+  <div class="invoice-header">
+    <div>ID: {{ invoice.id }}</div>
+    <div>Total: {{ invoice.total }}</div>
+  </div>
+  <app-table [columns]="columns" [rows]="invoice.Rows"></app-table>
+</div>
+<div class="button">
+  <div class="button-wrapper">
+    <button>Upload CSV</button>
+    <input
+      (change)="uploadCsv($event)"
+      type="file"
+      id="hidden-file-uploader"
+      accept=".csv"
+    />
+  </div>
+</div>
+<div class="errors-wrapper">
+  <div class="error-message" *ngFor="let error of errors">
+    <b class="text">{{ error.message }}</b>
+    <div>
+      Invalid fields:
+      <div *ngFor="let item of error.errorList">
+        {{ item.field }} = {{ error[item.field] }}
+      </div>
+    </div>
+  </div>
+</div>

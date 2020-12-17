@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+  th {
+    text-align: left;
+    &:last-child {
+      text-align: right;
+    }
+  }
+  td {
+    width: 100px;
+    &:last-child {
+      text-align: right;
+    }
+  }
+}
